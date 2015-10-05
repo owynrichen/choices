@@ -7,6 +7,10 @@
         background-color: #000;
       }
 
+      button.small {
+        font-size: 48pt;
+      }
+
       p#question {
         color: #fff;
         font-size: 36pt;
@@ -41,7 +45,7 @@
       button#nope {
         position: fixed;
         left: 50%;
-        top: 50%;
+        top: 40%;
         -webkit-transform: translateX(-50%) translateY(-50%);
         transform: translateX(-50%) translateY(-50%);
       }
@@ -49,7 +53,7 @@
       button#yep {
         position: fixed;
         left: 50%;
-        top: 70%;
+        top: 60%;
         -webkit-transform: translateX(-50%) translateY(-50%);
         transform: translateX(-50%) translateY(-50%);
       }
@@ -74,11 +78,39 @@
         -webkit-filter: invert(100%);
         filter: invert(100%);
         position: fixed;
-        bottom: 5%;
+        bottom: 2%;
         left: 50%;
         width: 25%;
         -webkit-transform: translateX(-50%) translateY(-50%);
         transform: translateX(-50%) translateY(-50%);
+      }
+
+      @media screen and (max-width: 480px) {
+        button {
+          font-size: 48pt;
+        }
+
+        button.small {
+          font-size: 36pt;
+        }
+
+        p#question {
+          font-size: 24pt;
+        }
+      }
+
+      @media screen and (max-height: 400px) {
+        button {
+          font-size: 48pt;
+        }
+
+        button.small {
+          font-size: 36pt;
+        }
+
+        p#question {
+          font-size: 24pt;
+        }
       }
   </style>
   <script type="text/javascript">
@@ -471,6 +503,14 @@
 
     var currentQuestion = 0;
 
+    function sequentialStrategy() {
+      return currentQuestion + 1;
+    }
+
+    function randomStrategy() {
+      return Math.floor(Math.random() * questions.length);
+    }
+
     function nextQuestion(question) {
       if (question > questions.length) {
         question = 0;
@@ -485,9 +525,13 @@
       if (answer == "nope" || answer == "yep") {
         document.getElementById("nope").innerHTML = "NOPE";
         document.getElementById("yep").innerHTML = "YEP";
+        document.getElementById("nope").className = "";
+        document.getElementById("yep").className = "";
       } else {
         document.getElementById("nope").innerHTML = "NO NO NO";
         document.getElementById("yep").innerHTML = "YEAH YEAH YEAH";
+        document.getElementById("nope").className = "small";
+        document.getElementById("yep").className = "small";
       }
     }
 
@@ -498,7 +542,7 @@
       playMedia(answer.replace(/\W/g,"_") + "_audio");
 
       if (q["answer"] == answer) {
-        nextQuestion(currentQuestion + 1);
+        nextQuestion(randomStrategy());
       }
     }
 
@@ -529,7 +573,7 @@
     <source src="media/yeah_yeah_yeah.mp3" type="audio/mp3" />
   </audio>
   <script type="text/javascript">
-    currentQuestion = 20;
+    currentQuestion = 0;
     nextQuestion(currentQuestion);
   </script>
 </body>
