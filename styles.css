@@ -1,0 +1,137 @@
+body {
+  background-color: #000;
+}
+
+button.small {
+  font-size: 48pt;
+}
+
+p#question {
+  color: #fff;
+  font-size: 36pt;
+  font-family: 'Ubuntu', sans-serif;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  left: 0%;
+  top: 10%;
+  position: fixed;
+  text-align: center;
+}
+
+button {
+  color: #fff;
+  font-size: 72pt;
+  font-family: 'Sigmar One', cursive;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  position: fixed;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+button:active {
+  color: #888;
+}
+
+button#nope {
+  left: 50%;
+  top: 40%;
+  width: 90%;
+  height: 20%;
+}
+
+button#yep {
+  left: 50%;
+  top: 60%;
+  width: 90%;
+  height: 20%;
+}
+
+button#strategyToggle {
+  font-size: 24pt;
+  right: 2%;
+  bottom: 0%;
+  width: 200px;
+  -webkit-transform: translateX(0%) translateY(-100%);
+  transform: translateX(0%) translateY(-100%);
+}
+
+video#bgvid {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background: url(media/e-40.png) no-repeat;
+  background-size: cover;
+  opacity: .5;
+}
+
+img#logo {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+  position: fixed;
+  bottom: 2%;
+  left: 50%;
+  width: 25%;
+  -webkit-transform: translateX(-50%) translateY(-100%);
+  transform: translateX(-50%) translateY(-100%);
+}
+
+@media screen and (max-width: 480px) {
+  button {
+    font-size: 48pt;
+  }
+
+  button#strategyToggle {
+    font-size: 12pt;
+  }
+
+  button.small {
+    font-size: 36pt;
+  }
+
+  p#question {
+    font-size: 24pt;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  button {
+    font-size: 48pt;
+  }
+
+  button#strategyToggle {
+    font-size: 12pt;
+  }
+
+  button.small {
+    font-size: 36pt;
+  }
+
+  p#question {
+    font-size: 24pt;
+  }
+}
+
+@media screen and (min-width: 481px) {
+  button#nope {
+    left: 20%;
+    top: 50%;
+  }
+
+  button#yep {
+    left: 80%;
+    top: 50%;
+  }
+}
